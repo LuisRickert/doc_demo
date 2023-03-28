@@ -9,12 +9,12 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          ref: doc
       - name: branches
         run: git branch | cat 
       - name: rebase
         run: git fetch --all && 
-             git checkout -B doc && 
+             #git checkout -B doc && 
              git branch | cat && 
              git config user.email "actions@github.com" && 
              git config user.name "GitHub Documentation Bot" && 
