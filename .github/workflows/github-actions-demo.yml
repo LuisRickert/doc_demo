@@ -19,10 +19,10 @@ jobs:
           ls ${{ github.workspace }}
       - name: checkout documentation branch
         run: git fetch --all && git checkout -B doc
-      - name: rebase
-        run: git stash && git rebase main && git stash apply
+     # - name: rebase
+     #   run: git stash && git rebase main && git stash apply
       - name: setup filter-branch on documentation branch
-        run: git filter-branch -f --subdirectory-filter documentation
+        run: git filter-branch -f --subdirectory-filter documentation && git push
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
