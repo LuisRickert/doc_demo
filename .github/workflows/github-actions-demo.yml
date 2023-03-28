@@ -14,7 +14,7 @@ jobs:
         run: git branch | cat 
       - name: rebase
         run: git fetch --all && 
-             git checkout doc && 
+             git checkout -B doc && 
              git branch | cat && 
              git config user.email "actions@github.com" && 
              git config user.name "GitHub Documentation Bot" && 
