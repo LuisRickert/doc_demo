@@ -19,11 +19,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - name: checkout documentation branch
-        run: git fetch --all && git checkout origin/doc 
+        run:  
       - name: branches
         run: git branch | cat 
       - name: rebase
-        run: git config user.email "actions@github.com" && 
+        run: git fetch --all && 
+             git checkout origin/doc && 
+             git config user.email "actions@github.com" && 
              git config user.name "GitHub Documentation Bot" && 
              git rebase --strategy-option ours origin/main &&
              git filter-branch -f --subdirectory-filter documentation &&
