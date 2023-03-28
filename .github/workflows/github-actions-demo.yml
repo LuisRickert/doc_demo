@@ -19,7 +19,7 @@ jobs:
       - name: look into repo 
         run: ls ${{ github.workspace }} 
       - name: merge main in to doc
-        run: git merge main
+        run: git merge main -s theirs
       - name: checkout result
         run: ls ${{ github.workspace }}     
       #- name: rebase
