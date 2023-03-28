@@ -20,10 +20,16 @@ jobs:
           ls ${{ github.workspace }}
       - name: checkout documentation branch
         run: git fetch --all && git checkout -B doc && git pull
-     # - name: rebase
-     #   run: git stash && git rebase main && git stash apply
+      - name: branches
+        run: git branch | cat 
+      - name: rebase
+        run: git config user.email "actions@github.com" && 
+             git config user.name "GitHub Documentation Bot" && 
+             git rebase --strategy-option ours origin/main
+      #- name: revert filter-branch
+      #  run: git reset refs/original/refs/heads/main --hard 
       - name: setup filter-branch on documentation branch
-        run: git filter-branch -f --subdirectory-filter documentation && git push
+        run: git filter-branch -f --subdirectory-filter documentation && git push --force
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
