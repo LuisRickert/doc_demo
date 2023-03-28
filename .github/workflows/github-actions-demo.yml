@@ -9,18 +9,18 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
         with:
-          ref: 'doc'
+          fetch-depth: 0
       - name: branches
         run: git branch | cat 
-      - name: rebase
-        run: git fetch --all && 
-             #git checkout -B doc && 
-             git branch | cat && 
-             git config user.email "actions@github.com" && 
-             git config user.name "GitHub Documentation Bot" && 
-             git merge main -s ours &&
-             git filter-branch -f --subdirectory-filter documentation &&
-             git push --set-upstream origin doc --force
+      #- name: rebase
+      #  run: git fetch --all && 
+      #       git checkout -B doc && 
+      #       git branch | cat && 
+      #       git config user.email "actions@github.com" && 
+      #       git config user.name "GitHub Documentation Bot" && 
+      #       git merge main -s ours &&
+      #       git filter-branch -f --subdirectory-filter documentation &&
+      #       git push --set-upstream origin doc --force
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
