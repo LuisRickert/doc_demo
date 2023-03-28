@@ -16,6 +16,11 @@ jobs:
         run: git checkout doc
       - name: where am i 
         run: git branch | cat
+      - name: look into repo 
+        run: ls ${{ github.workspace }} 
+      - name: merge master in to doc
+        run: git merge master
+      - name: checkout result
       #- name: rebase
       #  run: git fetch --all && 
       #       git checkout -B doc && 
