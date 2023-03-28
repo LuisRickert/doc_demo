@@ -22,7 +22,7 @@ jobs:
       #- name: rebase documentation branch
       #  run: git rebase main
       - name: setup filter-branch on documentation branch
-        run: git filter-branch --subdirectory-filter documentation
+        run: git filter-branch -f --subdirectory-filter documentation
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
