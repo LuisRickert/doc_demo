@@ -18,7 +18,7 @@ jobs:
              git branch | cat && 
              git config user.email "actions@github.com" && 
              git config user.name "GitHub Documentation Bot" && 
-             git rebase --strategy-option ours origin/main &&
+             git merge master -ff -s theirs
              git filter-branch -f --subdirectory-filter documentation &&
              git push --set-upstream origin doc --force
       - name: List files in the repository
