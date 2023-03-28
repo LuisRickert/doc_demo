@@ -9,7 +9,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
         with:
-          ref: doc
+          ref: 'doc'
       - name: branches
         run: git branch | cat 
       - name: rebase
