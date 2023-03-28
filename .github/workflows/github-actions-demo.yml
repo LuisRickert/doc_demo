@@ -12,6 +12,10 @@ jobs:
           fetch-depth: 0
       - name: branches
         run: git branch | cat 
+      - name: checkout branch
+        run: git checkout doc
+      - name: where am i 
+        run: git branch | cat
       #- name: rebase
       #  run: git fetch --all && 
       #       git checkout -B doc && 
