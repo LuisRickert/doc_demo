@@ -25,11 +25,11 @@ jobs:
       - name: rebase
         run: git config user.email "actions@github.com" && 
              git config user.name "GitHub Documentation Bot" && 
-             git rebase --strategy-option ours origin/main
+             git rebase --strategy-option ours origin/main &&
+             git filter-branch -f --subdirectory-filter documentation 
+             git push --force
       #- name: revert filter-branch
       #  run: git reset refs/original/refs/heads/main --hard 
-      - name: setup filter-branch on documentation branch
-        run: git filter-branch -f --subdirectory-filter documentation && git push HEAD:doc --force
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
